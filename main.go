@@ -4,14 +4,16 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"github.com/kelseyhightower/envconfig"
 	"os"
 	"time"
+
+	"github.com/kelseyhightower/envconfig"
 )
 
 var (
 	IdleWait int
 )
+
 type Specification struct {
 	IdleWait int `default:"10"`
 }
@@ -36,5 +38,9 @@ func main() {
 	fmt.Printf("Idle Wait: %d\n", IdleWait)
 
 	http.HandleFunc("/", hello)
-	http.ListenAndServe(":8080", nil)
+	server := &http.Server{
+		Addr: ":8080",
+	}
+	server.SetKeepAlivesEnabled(false)
+	server.ListenAndServe()
 }
