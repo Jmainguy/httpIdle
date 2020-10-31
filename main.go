@@ -16,6 +16,8 @@ var (
 
 type Specification struct {
 	IdleWait int `default:"10"`
+	KeepAlive bool `default:"true"`
+	Addr string `default:":8080"`
 }
 
 func hello(w http.ResponseWriter, req *http.Request) {
@@ -36,11 +38,13 @@ func main() {
 	IdleWait = s.IdleWait
 
 	fmt.Printf("Idle Wait: %d\n", IdleWait)
+	fmt.Printf("Keep Alives: %t\n", s.KeepAlive)
+	fmt.Printf("Addr: %s\n", s.Addr)
 
 	http.HandleFunc("/", hello)
 	server := &http.Server{
-		Addr: ":8080",
+		Addr: s.Addr,
 	}
-	server.SetKeepAlivesEnabled(false)
+	server.SetKeepAlivesEnabled(s.KeepAlive)
 	server.ListenAndServe()
 }
