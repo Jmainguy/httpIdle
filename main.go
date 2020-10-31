@@ -46,5 +46,9 @@ func main() {
 		Addr: s.Addr,
 	}
 	server.SetKeepAlivesEnabled(s.KeepAlive)
-	server.ListenAndServe()
+	err = server.ListenAndServe()
+
+	if err != nil {
+		log.Fatal("ListenAndServe", err)
+	}
 }
