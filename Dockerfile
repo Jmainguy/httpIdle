@@ -1,5 +1,5 @@
 # MAINTAINER Jonathan Mainguy <jon@soh.re>
-FROM golang:1.21.3
+FROM golang:1.22.0
 WORKDIR /go/src/app
 ENV GO111MODULE=on
 ADD . .
