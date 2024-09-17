@@ -1,6 +1,6 @@
 # HTTP Idle Server
 
-This project is a simple Go HTTP server that demonstrates idle connection handling. The server responds with a "hello" message and then pauses for a configured idle time.
+This project is a simple Go HTTP server that demonstrates idle connection handling. The server responds with a "hello" message after it pauses for a configured idle time.
 
 ## Features
 
