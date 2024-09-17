@@ -15,9 +15,9 @@ var (
 )
 
 type Specification struct {
-	IdleWait int `default:"10"`
-	KeepAlive bool `default:"true"`
-	Addr string `default:":8080"`
+	IdleWait  int    `default:"10"`
+	KeepAlive bool   `default:"true"`
+	Addr      string `default:":8080"`
 }
 
 func hello(w http.ResponseWriter, req *http.Request) {
