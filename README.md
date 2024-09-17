@@ -26,8 +26,8 @@ You can download the latest RPM package from the [GitHub releases page](https://
 A pre-built Docker image is available at hub.soh.re/httpidle:v1.0.0. You can pull and run the container as follows:
 
 ```bash
-docker pull hub.soh.re/httpIdle:v1.0.0
-docker run -d -p 8080:8080 --name httpIdle hub.soh.re/httpIdle:v1.0.0
+docker pull hub.soh.re/httpidle:v1.0.0
+docker run -d -p 8080:8080 --name httpIdle hub.soh.re/httpidle:v1.0.0
 ```
 The server will start on the configured address (default: :8080), and you can test it by sending a request:
 
