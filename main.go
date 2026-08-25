@@ -23,7 +23,9 @@ type Specification struct {
 func hello(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("Connection received")
 
-	fmt.Fprintf(w, "hello\n")
+	if _, err := fmt.Fprintln(w, "hello"); err != nil {
+		log.Printf("failed to write response: %v", err)
+	}
 	time.Sleep(time.Duration(IdleWait) * time.Second)
 }
 
